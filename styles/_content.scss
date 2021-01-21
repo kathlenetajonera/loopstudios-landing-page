@@ -1,0 +1,197 @@
+.content {
+    padding: 6rem 1.5rem;
+
+    @include mediaQuery(desktop-sm) {
+        padding: 9rem 5rem;
+    }
+
+    @include mediaQuery(desktop-md) {
+        padding: 9rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+
+        @include mediaQuery(desktop-md) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .grid-two-col {
+        display: grid;
+        position: relative;
+
+        @include mediaQuery(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 7rem;
+        }
+
+        .text {
+            order: 1;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+
+            @include mediaQuery(tablet) {
+                text-align: left;
+                padding: 3rem 0 0 3rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+
+            @include mediaQuery(desktop-sm) {
+                position: absolute;
+                background-color: white;
+                bottom: 0;
+                right: 0;
+                width: 40%;
+                padding: 5rem 0 0 5rem;
+            }
+
+            @include mediaQuery(desktop-md) {
+                width: 50%;
+            }
+
+            p {
+                margin: 1rem 0;
+                line-height: 1.8rem;
+
+                @include mediaQuery(tablet) {
+                    line-height: 1.5rem;
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        .image {
+            img {
+                margin: 0 auto;
+
+                &.mobile-interactive {
+                    display: block;
+                    max-width: 100%;
+
+                    @include mediaQuery(desktop-sm) {
+                        display: none;
+                    }
+                }
+
+                &.desktop-interactive {
+                    display: none;
+
+                    @include mediaQuery(desktop-sm) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .creations {
+        padding: 2rem 0;
+        position: relative;
+
+        .heading {
+            text-align: center;
+            margin-bottom: 3rem;
+
+            .primary-btn-desktop {
+                display: none;
+            }
+
+            @include mediaQuery(tablet) {
+                display: flex;
+                justify-content: space-between;
+
+                .primary-btn-desktop {
+                    display: block;
+                    text-transform: uppercase;
+                    color: $black;
+                    padding: .5rem 3rem;
+                    border: 1px solid $black;
+                    letter-spacing: 2px;
+                    font-size: .9rem;
+                }
+            }
+        }
+
+        .primary-btn-mobile {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 100%);
+            text-transform: uppercase;
+            color: $black;
+            padding: .5rem 3rem;
+            border: 1px solid $black;
+            letter-spacing: 2px;
+            font-size: .8rem;
+
+            @include mediaQuery(tablet) {
+                display: none;
+            }
+        }
+
+        a[class*=primary-btn] {
+            transition: .2s ease;
+
+            &:hover {
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+        .grid-four-col {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            .card {
+                position: relative;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    filter: brightness(0.9);
+                }
+
+                h2 {
+                    position: absolute;
+                    bottom: 10%;
+                    left: 5%;
+                    color: $white;
+                    width: 130px;
+                    cursor: pointer;
+
+                    @include mediaQuery(tablet) {
+                        font-size: 2rem;
+                        width: 170px;
+                    }
+                }
+
+                .overlay {
+                    opacity: 0;
+                    transition: .2s ease;
+                }
+
+                &:hover {
+                    .overlay {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background-color: $imageOverlay;
+                        opacity: .8;
+                    }
+
+                    h2 {
+                        color: $black;
+                        z-index: 999;
+                    }
+                }
+            }
+        }
+    }
+}

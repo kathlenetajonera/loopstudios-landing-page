@@ -1,0 +1,114 @@
+.footer {
+    background-color: $black;
+    padding: 3rem 2rem;
+    text-align: center;
+
+    @include mediaQuery(tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @include mediaQuery(desktop-sm) {
+        padding: 3rem 5rem;
+    }
+
+    @include mediaQuery(desktop-md) {
+        padding: 3rem 9rem;
+    }
+
+    .footer-menu {
+        @include mediaQuery(tablet) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            position: relative;
+        }
+
+        .footer-links {
+            margin: 1rem 0 1.5rem;
+
+            @include mediaQuery(tablet) {
+                display: flex;
+                margin-bottom: 0;
+            }
+
+            li {
+                padding: .5rem 0;
+
+                @include mediaQuery(tablet) {
+                    padding: 0 1rem 0 0;
+                }
+
+                a {
+                    color: $white;
+                    font-size: .9rem;
+                    position: relative;
+
+                    &:hover {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -50%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 20px;
+                            height: 2px;
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social-media {
+        @include mediaQuery(tablet) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .socmed {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                margin: 0 .5rem;
+                z-index: 99;
+                padding-bottom: 5px;
+                border-bottom: 2px solid transparent;
+                cursor: pointer;
+
+                a {
+                    i {
+                        color: $white;
+                        font-size: 1.3rem;
+                    }
+                }
+
+                &:hover {
+                    border-bottom: 2px solid $white;
+                }
+            }
+        }
+
+        .copyright {
+            font-size: .8rem;
+            margin-top: .8rem;
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    font-family: $body-font;
+    padding: 1rem 0;
+
+    a { color: hsl(228, 45%, 44%); }
+}
