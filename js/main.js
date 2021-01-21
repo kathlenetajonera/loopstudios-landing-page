@@ -74,14 +74,18 @@ window.addEventListener("scroll", () => {
 })
 
 function refresh() {
-	const storage = sessionStorage.getItem("yPosition")
+    const storage = sessionStorage.getItem("yPosition");
 
-	if (storage) {
-		document.location.reload();
-		window.scrollTo(0, storage)
-	} else {
-		document.location.reload();
-		window.scrollTo(0, 0)
+    if (window.innerWidth != screenWidth) {
+        screenWidth = window.innerWidth;
+
+        if (storage) {
+            document.location.reload();
+            window.scrollTo(0, storage)
+        } else {
+            document.location.reload();
+            window.scrollTo(0, 0)
+        }
     }
 }
 
